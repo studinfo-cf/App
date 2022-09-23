@@ -1,32 +1,45 @@
-
-
-
-
-
-
-
 {
 
-  "update":[
+  "array":[
 
     {
 
-    "version":"Google"
+    "company":"Google"
 
     },
 
     {
 
-      "version":"Facebook"
+      "company":"Facebook"
 
     },
 
     {
 
-    "version":"LinkedIn"
+    "company":"LinkedIn"
+
+    },
+
+    {
+
+      "company" : "Microsoft"
+
+    },
+
+    {
+
+      "company": "Apple"
 
     }
 
-    ]
+    ],
+
+    "nested":{
+
+    "flag": true,
+
+    "random_number":1
+
+    }
 
 }
