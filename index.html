@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"> </script>
+    <script src='https://srini582003.000webhostapp.com/ssss.js'> </script>
+
+
+
+
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     <script src="html5-qrcode.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+        background-color: #fff;  }
+    .result{
+      background-color: green;
+      color:#fff;
+      padding:20px;
+    }
+    .row{
+      display:flex;
+    }
+
+ select{
+background-color: #fff;
+padding: 10px;
+width: 250px;
+border-bottom: 2px solid silver;
+border-top: none;
+border-left: none;
+border-right: none;
+color: gray;
+font-size: 15px;}
+    .reader{
+      border-radius: 30px;
+      background-image: url('https://blogger.googleusercontent.com/img/a/AVvXsEjbqStzToVAanQ9hM8ZSgQm50pRrmR3CYP2iz_M8rB0yoF2XNx1mqZxmgzeGE-DHUAr3acX8kaDHR-WTNlsQ7TDTOPQh6Ldg3-vC7m9yVKBtvhjZkaw-4tY8uEV9-vF9jbizSoJWt4GZjLBuEHdwWFDo5MlVjh_UbiNzRk5XBgSBXgciZWqJV_7dNE0CA=s320');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 205px;
+      box-shadow: inset 5px 5px 12px rgb(160, 159, 159),
+                      5px 5px 12px rgba(0,0,0,.16);
+    }
+    .colid{
+      border-radius: 30px;
+      display: none;
+  
+    }
+    span{ 
+      background-color: #fff;
+      background: #fff;
+      color: #000000;
+    }
+    .container{
+    height: 92vh;
+    display: flex;
+    width: auto;
+    justify-content: center;
+    background-color:#fff;
+    align-items: bottom;
+}
+.qrcalci{
+     height: 600px;
+     width: 330px;
+
+     margin-top:20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 30px;
+    box-shadow: inset 5px 5px 12px #FFF,
+                      5px 5px 12px rgba(0,0,0,.36);
+}
+
+#department{
+  margin-top: 80px;
+}
+#backicon{
+height: 30px;
+width: 60px;
+color: #000000;
+margin-top: 10px;
+border-radius: 20px;
+background-color: #fff;
+box-shadow: inset 5px 5px 12px #FFF,
+                      5px 5px 12px rgba(0,0,0,.16);
+}
+button{
+  padding: 10px;
+        background-color: #2362eb;
+        color: white;
+        border-radius: 30px;   
+        padding-left: 30px;
+        font-weight: 600;   
+                      
+}
+#scanbtn{
+ padding: 10px;
+ border: none;
+ background-color: #2362eb;
+ color: #FFF;
+ font-weight: 600;
+
+}
+
+.graceicon2{
+  width: 30%;
+  filter: drop-shadow(5px 5px 12px rgba(0,0,0,.30));
+
+}
+.studinfo_txt2{
+  font-weight: 670; 
+  color: #2362eb;;
+  margin-top: -5px;
+  text-shadow: 5px 5px 12px rgba(0,0,0,.10);
+  
+}
+
+.editcalci{
+     height: 580px;
+     width: 330px;
+     display:none;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 30px;
+    box-shadow: inset 8px 8px 25px #FFF,
+                      5px 5px 20px rgba(0,0,0,.36);
+}
+
+.lab{
+
+
+color: #041b68;
+
+font-size: 17px;
+padding-right: 10px;
+}
+.lab2{
+
+
+
+font-size: 15px;
+padding-right: 10px;
+}
+
+.in{
+  text-align: left;
+  margin-left: 66px;
+}
+.in2{
+  text-align: left;
+  margin-left: 16px;
+
+}
+input{
+    background-color: #fff;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 600;
+    border: none;
+    text-align:left ;
+
+}
+.flipcard {
+  position: relative;
+  width: 420px;
+  perspective: 500px;
+      height: 97vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.flipcard.h .back {
+  transform: rotateY(-180deg);
+}
+
+.flipcard .front {
+  position: absolute;
+  box-sizing: border-box;
+  transition: all 0.4s ease-in;
+  backface-visibility: hidden;
+  height: 550px;
+     width: 325px;
+     background-image: url('https://srini582003.000webhostapp.com/id1.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 325px;
+    border-radius: 30px;
+    box-shadow: 
+                      5px 5px 12px rgba(0,0,0,.24);
+}
+
+.flipcard .back {
+  position: absolute;
+  box-sizing: border-box;
+  transition: all 0.4s ease-in;
+  backface-visibility: hidden;
+  height: 550px;
+     width: 325px;
+     background-image: url('https://srini582003.000webhostapp.com/id2.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 325px;
+    border-radius: 30px;
+    box-shadow: 
+                      5px 5px 12px rgba(0,0,0,.24);
+}
+.swap{
+  margin-top: -40px;
+}
+  </style>
+    <script>
+    function AddRow()
+    {
+      document.getElementById("add_button").disabled = true;
+      var regno = document.getElementById("regno").value;
+      var lastname = document.getElementById("lastname").value;
+      var department = document.getElementById("department").value;
+      var batchyear = document.getElementById("batchyear").value;
+      var dateofbirth = document.getElementById("dateofbirth").value;
+      var address = document.getElementById("address").value;
+      var mobile = document.getElementById("mobile").value;
+      var email = document.getElementById("email").value;
+      var reefresh = window.location;
+      
+      if(regno != '' && lastname != '' && department != '' && batchyear != '' && dateofbirth != '' && address != '' && mobile != ''&& email != '')
+      {
+        google.script.run.withSuccessHandler(function(return_string) 
+        {
+          SearchRecords();
+          document.getElementById("add_button").disabled = false;
+        }).AddRecord(regno, lastname, department, batchyear, dateofbirth, address,mobile, email);
+        
+  
+        window.location.assign("https://srini582003.000webhostapp.com");
+
+      }
+      else
+      {
+        document.getElementById("display_error").innerHTML = "Please Enter All Information!";
+        document.getElementById("add_button").disabled = false;
+      }
+      
+    }
+
+    function ClearRecord()
+    {
+        document.getElementById("regno").value = '';
+        document.getElementById("lastname").value = '';
+        document.getElementById("department").value = '';
+        document.getElementById("batchyear").value = '';
+        document.getElementById("dateofbirth").value = '';
+        document.getElementById("address").value = '';
+        document.getElementById("mobile").value = '';
+        document.getElementById("email").value = '';
+        document.getElementById("display_error").innerHTML = "";
+    }
+
+    function UpdateRecord(row_number)
+    {
+      document.getElementById("update_button"+row_number).disabled = true;
+      var record_id = document.getElementById("up_record_id"+row_number).value;
+      var regno = document.getElementById("up_regno"+row_number).value;
+      var lastname = document.getElementById("up_lastname"+row_number).value;
+      var department = document.getElementById("up_department"+row_number).value;
+      var batchyear = document.getElementById("up_batchyear"+row_number).value;
+      var dateofbirth = document.getElementById("up_dateofbirth"+row_number).value;
+      var address = document.getElementById("up_address"+row_number).value;
+      var mobile = document.getElementById("up_mobile"+row_number).value;
+      var email = document.getElementById("up_email"+row_number).value;
+
+      google.script.run.withSuccessHandler(function(return_string) 
+      {
+          document.getElementById("update_button"+row_number).disabled = false;
+           window.location.assign("https://srini582003.000webhostapp.com");
+
+      }).UpdateRecord(record_id, regno, lastname, department, batchyear, dateofbirth, address, mobile, email);
+    }
+
+    function DeleteRecord(row_number)
+    {
+
+      var record_id = document.getElementById("up_record_id"+row_number).value;
+      var department = document.getElementById("department").value;
+
+      google.script.run.withSuccessHandler(function(return_string) 
+      {
+        if(return_string == 'SUCCESS')
+        {
+          document.getElementById('mainTable').deleteRow(document.getElementById('ROWNUMBER:'+row_number).rowIndex);
+          window.location.assign("https://srini582003.000webhostapp.com");
+
+        }
+      }).DeleteRecord(record_id,department);
+    }
+
+    function SearchRecords() 
+    {
+      var regno = document.getElementById("regno").value;
+      var lastname = document.getElementById("lastname").value;
+      var department = document.getElementById("department").value;
+      var batchyear = document.getElementById("batchyear").value;
+      var dateofbirth = document.getElementById("dateofbirth").value;
+      var address = document.getElementById("address").value;
+      var mobile = document.getElementById("mobile").value;
+      var email = document.getElementById("email").value;
+      var row_number = 0;
+
+      
+
+      google.script.run.withSuccessHandler(function(ar) 
+      {
+
+        console.log(ar);
+        var displayTable = '<form>';
+
+        ar.forEach(function(item, index) 
+        {
+          
+          
+
+  displayTable += "<input type=\"hidden\" id=\"up_record_id"+ row_number +"\" value=\""+item[0]+"\" /></div></div> ";
+    displayTable += "<div onclick=\"myFunction()\" class=\"flipcard h\" id=\"sss\"><div class=\"front\" id=\"front\"><center><img style=\" width: 45%; margin-top: 210px;margin-left: 10px;\"  src=\"https://srini582003.000webhostapp.com/man.png\"><br>";
+    displayTable += "<input type=\"button\" style=\"font-size: 20px; margin-top: 6px; margin-left: 20px; font-weight: 900; background-color: #fff; color: #041b68;\" value=\""+item[2]+"\"  id=\"up_lastname"+ row_number +"\" required /><br>";
+    displayTable += "<div class=\"in\"><label class=\"lab\"  for=\"regno\">Course</label><input style=\"padding-left: 10px;\" type=\"button\" value=\": B.E\" id=\"up_course\" required /><br><label class=\"lab\"  for=\"department\">Branch</label>";
+    displayTable += "<input style=\"padding-left: 8px;\" type=\"button\" value=\""+item[3]+"\" id=\"up_department"+ row_number +"\" required /><br><label class=\"lab\"   for=\"batchyear\">Batch</label>";
+    displayTable += "<input style=\"padding-left: 20px;\"type=\"button\" value=\""+item[4]+"\" id=\"up_batchyear"+ row_number +"\" required /><br><label class=\"lab\"   for=\"regno\">Reg. No</label>";
+    displayTable += "<input style=\"padding-left: 6px;\" type=\"button\" value=\""+item[1]+"\" id=\"up_regno"+ row_number +"\" required /><br>";
+    displayTable += "</div></center>  </div><div class=\"back\" id=\"back\"><center><div class=\"in2\" ><label style=\"color: red;  margin-top: 28px;\" for=\"address\" >Citty-Village:</label><br>";
+    displayTable += "<input style=\"margin-left: 80px;\" type=\"button\" value=\""+item[6]+"\" id=\"up_address"+ row_number +"\" /><br><br><label style=\"color: red;\"for=\"email\" >Mobile NO:</label><br>";
+    displayTable += "<input style=\"margin-left: 80px;\" type=\"button\" value=\""+item[7]+"\" id=\"up_mobile"+ row_number +"\" required/><br><br><label style=\"color: red;\" for=\"dateofbirth\">Date of Birth:</label><br>";
+    displayTable += "<input style=\"margin-left: 90px;\" type=\"button\" value=\""+item[5]+"\" id=\"up_dateofbirth"+ row_number +"\" required /><br><br><br><label  for=\"email\" style=\"margin-left: 60px;  color: rgb(8, 143, 30); font-size: 20px;\">Fee Pending:</label>";
+    displayTable += "<input style=\"font-size: 20px; font-family: helvetica;\" type=\"button\" value=\""+item[8]+"\" id=\"up_email"+ row_number +"\" required/></div></center></div><div>" ;
+
+
+      
+
+          row_number++;    
+        });
+
+        displayTable += '</table></form>';     
+        document.getElementById("rowdata").innerHTML = displayTable;
+        document.getElementById("qrcalciid").style.display = "none"
+        document.getElementById("swap").style.display = "block"
+        
+
+      }).searchRecords(regno, lastname, department, batchyear, dateofbirth, address, mobile, email);
+      
+    }
+    </script>
+  </head>
+  <body>
+
+      
+      
+
+    <div class="container">
+      <center>
+
+                     <!----QR page Start  ---->
+                      <div id="qrcalciid" class="qrcalci"  >
+
+                        <center>
+                          <img class="graceicon2"  src="Srini.png"><br>
+                          <h1 style="color: #2362eb;text-shadow: 5px 5px 12px rgba(0,0,0,.10);" >Grace Studinfo</h1><br><br>
+                          <h3 id="scantitile" >Select Department</h3>
+                          <br><h3 style="display: none;" id="detecting">Detecting...</h3><br>
+                          
+                        <div id="departmentid" class="department">
+                          <select  name="department" id="department" required>
+                            <option >--Select Department--</option>
+                            <option  value="ECE">ECE</option>
+                            <option value="MECH">MECH</option>
+                            <option value="CIVIL">CIVIL</option>
+                            <option value="EEE">EEE</option>
+                            <option value="CSE">CSE</option>
+                        </select><br><br>
+
+                        <button onclick="depselect2()" id="scanbtn" >Scan</button>
+                        </div>
+                          
+                        <div id="colid" class="colid" >
+                          <div  class="col">
+                            <div class="reader" style="width:290px; height: 310px;" id="reader"></div>
+                          </div>
+                           <div style="display: none;" class="input-data">
+                                      <input  type="text" id="regno" required />
+                                      <div class="underline"></div>
+                                      <label  for="regno">Register No:</label>
+                                      
+                                      <input type="button" value="Search" class="btn btn-primary" onclick="SearchRecords()" />
+                                  </div>
+                        </div>
+                            
+                            <div class="wrapper" style="display: none;">
+                              <div class="input-data">
+                                  <input type="text"  id="lastname" required />
+                                  <div class="underline"></div>
+                                  <label for="lastname" >Student Name</label>
+                              </div>
+                            </div>
+                           
+                         
+                           <div style="display: none;" class="wrapper">
+                              <div class="input-data">
+                                  <input type="text" id="batchyear" required />
+                                  <div class="underline"></div>
+                                  <label for="batchyear">Batch-Year</label>
+                              </div>
+                           </div>
+                          
+                            <div style="display: none;" class="wrapper">
+                              <div class="input-data">
+                              <input type="text" id="dateofbirth" required />
+                            <div class="underline"></div>
+                            <label for="dateofbirth">Date of Birth</label>
+                          </div>
+                          </div>
+                          
+                            <div style="display: none;" class="wrapper">
+                              <div class="input-data">
+                            <input type="text" id="address" required />
+                            <div class="underline" ></div>
+                            <label for="address" >Citty-Village</label>
+                          </div>
+                          </div>
+    
+                          <div style="display: none;" class="wrapper">
+                            <div class="input-data">
+                          <input type="text" id="mobile" required />
+                          <div class="underline" ></div>
+                          <label for="address" >Mobile</label>
+                        </div>
+                        </div>
+                          
+                            <div style="display: none;" class="wrapper">
+                              <div class="input-data">
+                            <input type="text" id="email" required/>
+                            <div class="underline"></div>
+                            <label for="email"> Fee Pending</label>
+                          </div>
+                        </div>
+
+                        <br><br><br>
+                        <h1  onclick="goqreditpg()" style="display: none;" id="backicon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="none"><style>@keyframes slide-4{to{transform:translateX(2px)}}.prefix__slide-4{animation:slide-4 1s infinite alternate both cubic-bezier(1,-.01,0,.98)}</style><g class="prefix__slide-4"><path class="prefix__slide-4" fill="#0A0A30" fill-rule="evenodd" d="M11.891 7.166a.714.714 0 00-1.006.091l-3.564 4.277a.71.71 0 00-.102.777.71.71 0 00.102.155l3.564 4.277a.714.714 0 001.098-.915L9.417 12.75h7.731a.75.75 0 100-1.5h-7.73l2.565-3.078a.714.714 0 00-.092-1.006z" clip-rule="evenodd"/></g></svg></h1>
+                        </center>
+                        </div><br>
+
+
+
+
+
+                       <div  id="rowdata"></div>
+
+ 
+
+              
+                        </center>
+                </div>
+
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ 
+  </body>
+  <script type="text/javascript">
+   function onScanSuccess(qrCodeMessage) {
+
+      let decoded = window.atob(qrCodeMessage);
+       var DeCQr = CryptoJS.AES.decrypt(decoded,'20103');
+       var decryptedMessage = DeCQr.toString(CryptoJS.enc.Utf8);
+
+document.getElementById('detecting').innerHTML = "ID: "+decryptedMessage;
+document.getElementById('regno').value = decryptedMessage;
+setTimeout(SearchRecords, 500);
+
+    }
+
+function onScanError(errorMessage) {
+
+}
+var html5QrcodeScanner = new Html5QrcodeScanner(
+"reader", { fps: 10, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess, onScanError);
+
+
+   function goqreditpg(){
+      document.getElementById("scantitile").innerHTML = "Select Department"
+   document.getElementById("colid").style.display = "none"
+   document.getElementById("backicon").style.display = "none"
+   document.getElementById('detecting').style.display = "none";
+    document.getElementById("qrcalciid").style.height = "530px"
+   document.getElementById("department").value = "--Select Department--"
+   document.getElementById("departmentid").style.display = "block"
+    }
+
+
+
+
+    function depselect2() {
+  var dep = document.getElementById("department").value;
+  if(dep == 'ECE' ){
+  document.getElementById("colid").style.display = "block"
+  document.getElementById("qrcalciid").style.height = "700px"
+  document.getElementById("scantitile").innerHTML = "Scan  "+dep+"  Student QR"
+  document.getElementById('detecting').style.display = "block";
+  document.getElementById("backicon").style.display = "block"
+  document.getElementById("departmentid").style.display = "none"}
+  else if(dep == 'EEE'){
+    document.getElementById("colid").style.display = "block"
+    document.getElementById("scantitile").innerHTML = "Scan  "+dep+"  Student QR"
+    document.getElementById('detecting').style.display = "block";
+     document.getElementById("qrcalciid").style.height = "700px"
+    document.getElementById("backicon").style.display = "block"
+  document.getElementById("departmentid").style.display = "none"
+
+  }
+  else if(dep == 'MECH'){
+    document.getElementById("colid").style.display = "block"
+    document.getElementById("scantitile").innerHTML = "Scan  "+dep+"  Student QR"
+    document.getElementById('detecting').style.display = "block";
+     document.getElementById("qrcalciid").style.height = "700px"
+    document.getElementById("backicon").style.display = "block"
+  document.getElementById("departmentid").style.display = "none"
+
+  }
+  else if(dep == 'CIVIL'){
+    document.getElementById("colid").style.display = "block"
+    document.getElementById("scantitile").innerHTML = "Scan  "+dep+"  Student QR"
+    document.getElementById('detecting').style.display = "block";
+     document.getElementById("qrcalciid").style.height = "700px"
+    document.getElementById("backicon").style.display = "block"
+  document.getElementById("departmentid").style.display = "none"
+
+  }
+  else if(dep == 'CSE'){
+    document.getElementById("colid").style.display = "block"
+    document.getElementById("scantitile").innerHTML = "Scan  "+dep+"  Student QR"
+    document.getElementById('detecting').style.display = "block";
+     document.getElementById("qrcalciid").style.height = "700px"
+    document.getElementById("backicon").style.display = "block"
+  document.getElementById("departmentid").style.display = "none"
+
+  }
+ 
+}
+
+    </script>
+    <script>
+  function myFunction() {
+    if (document.getElementById("front").style.transform == "" || document.getElementById("front").style.transform == "rotateY(0deg)") {
+      document.getElementById("front").style.transform = "rotateY(180deg)";
+      document.getElementById("back").style.transform = "rotateY(0deg)";
+      document.getElementById("id2").style.backgroundColor = "#f535ab";
+      document.getElementById("id1").style.backgroundColor = "#b6aeae";
+    } else {
+      document.getElementById("front").style.transform = "";
+      document.getElementById("back").style.transform = "rotateY(-180deg)";
+      document.getElementById("id1").style.backgroundColor = "#f535ab";
+      document.getElementById("id2").style.backgroundColor = "#b6aeae";
+      
+    }
+  }
+  
+  </script>
+</html>
+
+
