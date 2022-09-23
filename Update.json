@@ -1,7 +1,32 @@
+
+
+
+
+
+
+
 {
-  "update":  
-[{
-    "Version": "1"
-   "whatsnew": "No Update"
-}]
+
+  "update":[
+
+    {
+
+    "version":"Google"
+
+    },
+
+    {
+
+      "version":"Facebook"
+
+    },
+
+    {
+
+    "version":"LinkedIn"
+
+    }
+
+    ]
+
 }
