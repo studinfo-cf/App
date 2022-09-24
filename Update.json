@@ -4,7 +4,7 @@
 
     {
 
-    "version":"1"
+    "version":"Google"
 
     },
 
@@ -32,14 +32,6 @@
 
     }
 
-    ],
-
-    "nested":{
-
-    "flag": true,
-
-    "random_number":1
-
-    }
+    ]
 
 }
