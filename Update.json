@@ -4,42 +4,12 @@
 
     {
 
-    "version":"1"
+    "version":"Google",
 
-    },
-
-    {
-
-      "version":"Facebook"
-
-    },
-
-    {
-
-    "version":"LinkedIn"
-
-    },
-
-    {
-
-      "version" : "Microsoft"
-
-    },
-
-    {
-
-      "version": "Apple"
+    "whatsnew":"NoUpdate"
 
     }
 
-    ],
-
-    "nested":{
-
-    "flag": true,
-
-    "random_number":1
-
-    }
+    ]
 
 }
