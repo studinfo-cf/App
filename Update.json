@@ -4,13 +4,13 @@
 
     {
 
-    "version":"Google"
+    "version":"1"
 
     },
 
     {
 
-      "version":"Facebook"
+      "version":"2"
 
     },
 
@@ -32,14 +32,6 @@
 
     }
 
-    ],
-
-    "nested":{
-
-    "flag": true,
-
-    "random_number":1
-
-    }
+    ]
 
 }
